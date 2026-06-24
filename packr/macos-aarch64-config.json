@@ -1,6 +1,6 @@
 {
   "classPath": [
-    "Jirenyte.jar"
+    "Relicscape.jar"
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [

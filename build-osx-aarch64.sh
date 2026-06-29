@@ -2,11 +2,11 @@
 
 set -e
 
-APPBASE="build/macos-aarch64/Relicscape.app"
+APPBASE="build/macos-aarch64/DamnedX.app"
 
 build() {
     echo Launcher sha256sum
-    shasum -a 256 build/libs/Relicscape.jar
+    shasum -a 256 build/libs/DamnedX.jar
 
     pushd native
     cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -B build-aarch64 .
@@ -26,8 +26,8 @@ build() {
 
     mkdir -p $APPBASE/Contents/{MacOS,Resources}
 
-    cp native/build-aarch64/src/Relicscape $APPBASE/Contents/MacOS/
-    cp build/libs/Relicscape.jar $APPBASE/Contents/Resources/
+    cp native/build-aarch64/src/DamnedX $APPBASE/Contents/MacOS/
+    cp build/libs/DamnedX.jar $APPBASE/Contents/Resources/
     cp packr/macos-aarch64-config.json $APPBASE/Contents/Resources/config.json
     cp build/filtered-resources/Info.plist $APPBASE/Contents/
     cp osx/runelite.icns $APPBASE/Contents/Resources/icons.icns
@@ -36,12 +36,12 @@ build() {
     mkdir $APPBASE/Contents/Resources/jre
     mv $MAC_AARCH64_RELEASE-jre/Contents/Home/* $APPBASE/Contents/Resources/jre
 
-    echo Setting world execute permissions on Relicscape
+    echo Setting world execute permissions on DamnedX
     pushd $APPBASE
-    chmod g+x,o+x Contents/MacOS/Relicscape
+    chmod g+x,o+x Contents/MacOS/DamnedX
     popd
 
-    otool -l $APPBASE/Contents/MacOS/Relicscape
+    otool -l $APPBASE/Contents/MacOS/DamnedX
 }
 
 dmg() {
@@ -50,24 +50,24 @@ dmg() {
 
     # create-dmg exits with an error code due to no code signing, but is still okay
     create-dmg $APPBASE . || true
-    mv Relicscape\ *.dmg Relicscape-aarch64.dmg
+    mv DamnedX\ *.dmg DamnedX-aarch64.dmg
 
     # dump for CI
-    hdiutil imageinfo Relicscape-aarch64.dmg
+    hdiutil imageinfo DamnedX-aarch64.dmg
 
-    if ! hdiutil imageinfo Relicscape-aarch64.dmg | grep -q "Format: ULFO" ; then
+    if ! hdiutil imageinfo DamnedX-aarch64.dmg | grep -q "Format: ULFO" ; then
         echo Format of dmg is not ULFO
         exit 1
     fi
 
-    if ! hdiutil imageinfo Relicscape-aarch64.dmg | grep -q "Apple_HFS" ; then
+    if ! hdiutil imageinfo DamnedX-aarch64.dmg | grep -q "Apple_HFS" ; then
         echo Filesystem of dmg is not Apple_HFS
         exit 1
     fi
 
     # Notarize app
-    if xcrun notarytool submit Relicscape-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-        xcrun stapler staple Relicscape-aarch64.dmg
+    if xcrun notarytool submit DamnedX-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+        xcrun stapler staple DamnedX-aarch64.dmg
     fi
 }
 

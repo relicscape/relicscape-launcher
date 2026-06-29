@@ -36,7 +36,7 @@ repositories {
 
 group = "net.runelite"
 version = "2.7.7-SNAPSHOT"
-description = "Relicscape Launcher"
+description = "DamnedX Launcher"
 
 dependencies {
     implementation(libs.slf4j.api)

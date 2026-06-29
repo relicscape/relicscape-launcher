@@ -90,8 +90,8 @@ class Updater
 		Path path = Paths.get(command.get());
 
 		// on macOS packr changes the cwd to the resource directory prior to launching the JVM,
-		// causing current.info().command() to return /Applications/Relicscape.app/Contents/Resources/./Relicscape
-		// despite the executable really being at /Applications/Relicscape.app/Contents/MacOS/Relicscape
+		// causing current.info().command() to return /Applications/DamnedX.app/Contents/Resources/./DamnedX
+		// despite the executable really being at /Applications/DamnedX.app/Contents/MacOS/DamnedX
 		path = path.normalize()
 			.resolveSibling(Path.of("..", "MacOS", path.getFileName().toString()))
 			.normalize();
@@ -330,7 +330,7 @@ class Updater
 			return;
 		}
 
-		// the installer kills running Relicscape processes, so check that there are no others running
+		// the installer kills running DamnedX processes, so check that there are no others running
 		List<ProcessHandle> allProcesses = ProcessHandle.allProcesses().collect(Collectors.toList());
 		for (ProcessHandle ph : allProcesses)
 		{

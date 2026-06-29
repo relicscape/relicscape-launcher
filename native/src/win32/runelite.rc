@@ -11,9 +11,9 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription",  "Relicscape"
-            VALUE "OriginalFilename", "Relicscape.exe"
-            VALUE "ProductName",      "Relicscape Launcher"
+            VALUE "FileDescription",  "DamnedX"
+            VALUE "OriginalFilename", "DamnedX.exe"
+            VALUE "ProductName",      "DamnedX Launcher"
         END
     END
 

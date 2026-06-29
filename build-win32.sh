@@ -3,7 +3,7 @@
 set -e
 
 echo Launcher sha256sum
-sha256sum build/libs/Relicscape.jar
+sha256sum build/libs/DamnedX.jar
 
 cmake -S liblauncher -B liblauncher/build32 -A Win32
 cmake --build liblauncher/build32 --config Release
@@ -24,18 +24,18 @@ fi
 
 echo "$WIN32_CHKSUM win32_jre.zip" | sha256sum -c
 
-cp native/build-x86/src/Release/Relicscape.exe build/win-x86/
-cp build/libs/Relicscape.jar build/win-x86/
+cp native/build-x86/src/Release/DamnedX.exe build/win-x86/
+cp build/libs/DamnedX.jar build/win-x86/
 cp packr/win-x86-config.json build/win-x86/config.json
 cp liblauncher/build32/Release/launcher_x86.dll build/win-x86/
 
 unzip win32_jre.zip
 mv $WIN32_RELEASE-jre build/win-x86/jre
 
-echo Relicscape.exe 32bit sha256sum
-sha256sum build/win-x86/Relicscape.exe
+echo DamnedX.exe 32bit sha256sum
+sha256sum build/win-x86/DamnedX.exe
 
-dumpbin //HEADERS build/win-x86/Relicscape.exe
+dumpbin //HEADERS build/win-x86/DamnedX.exe
 
 # We use the filtered iss file
 iscc build/filtered-resources/runelite32.iss

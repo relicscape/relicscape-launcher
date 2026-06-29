@@ -1,6 +1,6 @@
 {
   "classPath": [
-    "Relicscape.jar"
+    "DamnedX.jar"
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [

@@ -90,7 +90,7 @@ import static net.runelite.launcher.Constants.*;
 @Slf4j
 public class Launcher
 {
-	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), "." + SERVER_NAME_LOWERCASE);
+	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".relicscape") /* data dir kept .relicscape (shared w/ client); brand is DamnedX */;
 	static final File LOGS_DIR = new File(RUNELITE_DIR, "logs");
 	static final File REPO_DIR = new File(RUNELITE_DIR, "repository2");
 	public static final File CRASH_FILES = new File(LOGS_DIR, "jvm_crash_pid_%p.log");
@@ -233,7 +233,7 @@ public class Launcher
 			final Map<String, String> jvmProps = new LinkedHashMap<>();
 			if (settings.scale != null)
 			{
-				// This calls SetProcessDPIAware(). Since the Relicscape.exe manifest is DPI unaware
+				// This calls SetProcessDPIAware(). Since the DamnedX.exe manifest is DPI unaware
 				// Windows will scale the application if this isn't called. Thus the default scaling
 				// mode is Windows scaling due to being DPI unaware.
 				// https://docs.microsoft.com/en-us/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows

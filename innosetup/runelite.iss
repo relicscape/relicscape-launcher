@@ -3,7 +3,7 @@ AppName=DamnedX Launcher
 AppPublisher=DamnedX
 UninstallDisplayName=DamnedX
 AppVersion=${project.version}
-AppSupportURL=https://relicscape.com
+AppSupportURL=https://damnedx.com
 DefaultDirName={localappdata}\DamnedX
 
 ; ~30 mb for the repo the launcher downloads

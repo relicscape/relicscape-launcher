@@ -5,5 +5,5 @@ public enum Constants {
 
     public static final String SERVER_NAME = "DamnedX";
     public static final String SERVER_NAME_LOWERCASE = SERVER_NAME.toLowerCase();
-    public static final String SERVER_WEBSITE_SHORT = "Relicscape.com";
+    public static final String SERVER_WEBSITE_SHORT = "DamnedX.com";
 }

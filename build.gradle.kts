@@ -89,7 +89,7 @@ tasks {
         filesMatching("**/*.properties") {
             val props = if (project.findProperty("RUNELITE_BUILD") as? String == "runelite")
                 arrayOf(
-                    "runelite_net" to "relicscape.com",
+                    "runelite_net" to "damnedx.com",
                     "runelite_128" to "runelite_128.png",
                     "runelite_splash" to "runelite_splash.png"
                 )

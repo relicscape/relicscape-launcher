@@ -43,12 +43,15 @@ Filename: "{app}\DamnedX.exe"; Parameters: "--postinstall"; Flags: nowait
 Filename: "{app}\DamnedX.exe"; Description: "&Open DamnedX"; Flags: postinstall skipifsilent nowait
 
 [InstallDelete]
+; jar cache from before the data dir moved to .damnedx
+Type: filesandordirs; Name: "{%USERPROFILE}\.relicscape\repository2"
 ; Delete the old jvm so it doesn't try to load old stuff with the new vm and crash
 Type: filesandordirs; Name: "{app}\jre"
 ; previous shortcut
 Type: files; Name: "{userprograms}\DamnedX.lnk"
 
 [UninstallDelete]
+Type: filesandordirs; Name: "{%USERPROFILE}\.damnedx\repository2"
 Type: filesandordirs; Name: "{%USERPROFILE}\.relicscape\repository2"
 ; includes install_id, settings, etc
 Type: filesandordirs; Name: "{app}"

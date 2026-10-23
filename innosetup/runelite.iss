@@ -4,6 +4,12 @@ AppPublisher=DamnedX
 UninstallDisplayName=DamnedX
 AppVersion=${project.version}
 AppSupportURL=https://damnedx.com
+AppPublisherURL=https://damnedx.com
+AppUpdatesURL=https://damnedx.com/download/
+; shown in the file's Properties > Details, the only publisher info an unsigned installer carries
+VersionInfoCompany=DamnedX
+VersionInfoDescription=DamnedX Setup
+VersionInfoProductName=DamnedX
 DefaultDirName={localappdata}\DamnedX
 
 ; ~30 mb for the repo the launcher downloads

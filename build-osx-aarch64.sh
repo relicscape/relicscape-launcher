@@ -46,7 +46,13 @@ build() {
 
 dmg() {
     SIGNING_IDENTITY="Developer ID Application"
-    codesign -f -s "${SIGNING_IDENTITY}" --entitlements osx/signing.entitlements --options runtime $APPBASE || true
+    if ! codesign -f -s "${SIGNING_IDENTITY}" --entitlements osx/signing.entitlements --options runtime $APPBASE ; then
+        # No Developer ID: ad-hoc sign the whole bundle so Gatekeeper offers "Open Anyway"
+        # instead of reporting the app as damaged.
+        echo "No Developer ID identity, ad-hoc signing"
+        codesign -f --deep -s - $APPBASE
+    fi
+    codesign --verify --deep --strict --verbose=2 $APPBASE
 
     # create-dmg exits with an error code due to no code signing, but is still okay
     create-dmg $APPBASE . || true

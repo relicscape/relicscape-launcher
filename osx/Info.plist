@@ -5,7 +5,7 @@
   <key>CFBundleExecutable</key>
   <string>${project.finalName}</string>
   <key>CFBundleIdentifier</key>
-  <string>${project.group}.${project.name}</string>
+  <string>com.damnedx.launcher</string>
   <key>CFBundleName</key>
   <string>${project.finalName}</string>
   <key>CFBundleIconFile</key>
